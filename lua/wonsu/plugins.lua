@@ -6,18 +6,25 @@ return {
 
   -- LSP 
   {
-    'neovim/nvim-lspconfig',
-    dependencies = {
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
-      { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
-      'folke/neodev.nvim',
-    },
+      'VonHeikemen/lsp-zero.nvim',
+      branch = 'v2.x',
+      dependencies = {
+          'neovim/nvim-lspconfig',
+          'williamboman/mason.nvim',
+          'williamboman/mason-lspconfig.nvim',
+          'folke/neodev.nvim',
+      }
   },
   --
 
   -- C#
-    'omniSharp/omnisharp-vim',
+  {
+      --[['omniSharp/omnisharp-vim',
+      dependencies = {
+          'Hoffs/omnisharp-extended-lsp.nvim'
+      }]]
+          'Hoffs/omnisharp-extended-lsp.nvim',
+  },
   --
 
   -- Autocompletion
@@ -81,9 +88,6 @@ return {
   -- Treesitter
   {
     'nvim-treesitter/nvim-treesitter',
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
-    },
     build = ':TSUpdate',
   },
   --
