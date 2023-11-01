@@ -19,12 +19,6 @@ lsp.on_attach(function(_, bufnr)
 
 end)
 
---[[lsp.configure('omnisharp', {
-	handlers = {
-		["textDocument/definition"] = require('omnisharp_extended').handler
-	}
-})]]
-
 lsp.setup()
 
 -- Setup neovim lua configuration
@@ -41,6 +35,7 @@ lspconfig.omnisharp.setup({
 	},
 	cmd = { 'omnisharp' },
 })
+lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
 
 vim.diagnostic.config({
     virtual_text = true

@@ -19,11 +19,7 @@ return {
 
   -- C#
   {
-      --[['omniSharp/omnisharp-vim',
-      dependencies = {
-          'Hoffs/omnisharp-extended-lsp.nvim'
-      }]]
-          'Hoffs/omnisharp-extended-lsp.nvim',
+      'Hoffs/omnisharp-extended-lsp.nvim',
   },
   --
 
