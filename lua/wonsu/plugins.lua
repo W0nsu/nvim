@@ -17,12 +17,7 @@ return {
   --
 
   -- C#
-  {
     'omniSharp/omnisharp-vim',
-    dependencies = {
-      'omnisharp_extended'
-    }
-  },
   --
 
   -- Autocompletion

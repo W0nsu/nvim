@@ -1,4 +1,5 @@
 vim.g.OmniSharp_highlighting = 0
+vim.g.OmniSharp_server_use_net6 = 1
 
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
