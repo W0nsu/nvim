@@ -26,6 +26,7 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+vim.keymap.set("n", "<CR>", ":bw<CR>", {buffer = true, noremap = true, silent = true})
 
 -- Close all buffers without current one(closes and reopens current with save cursor position)
 vim.keymap.set("n", "<leader>cb", function()
