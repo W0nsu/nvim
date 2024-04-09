@@ -12,13 +12,14 @@ return {
           'neovim/nvim-lspconfig',
           'williamboman/mason.nvim',
           'williamboman/mason-lspconfig.nvim',
-          'folke/neodev.nvim',
       }
   },
   --
 
   -- C#
   {
+      'jmederosalvarado/roslyn.nvim',
+      'jlcrochet/vim-razor',
       'Hoffs/omnisharp-extended-lsp.nvim',
   },
   --
