@@ -1,5 +1,24 @@
 local lsp = require("lsp-zero")
 
+vim.filetype.add {
+    extension = {
+        templ = "templ"
+    }
+}
+
+-- Register the LSP as a config
+local configs = require 'lspconfig.configs'
+if not configs.templ then
+    configs.templ = {
+        default_config = {
+            cmd = { "templ", "lsp" },
+            filetypes = { 'templ' },
+            root_dir = require "lspconfig.util".root_pattern("go.mod", ".git"),
+            settings = {},
+        },
+    }
+end
+
 lsp.preset("recommended")
 
 lsp.ensure_installed({

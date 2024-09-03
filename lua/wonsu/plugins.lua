@@ -19,6 +19,7 @@ return {
   -- C#
   {
       'jmederosalvarado/roslyn.nvim',
+      "moreiraio/razor.nvim",
       'jlcrochet/vim-razor',
       'Hoffs/omnisharp-extended-lsp.nvim',
   },
@@ -36,29 +37,54 @@ return {
   },
   --
 
-  -- Pending keybinds 
-  { 'folke/which-key.nvim', opts = {} },
-  --
-
   -- Interface
+  'catppuccin/nvim',
+  'rose-pine/neovim',
+  {
+      'rebelot/kanagawa.nvim',
+      opts = {
+          commentStyle = { italic = true },
+          keywordStyle = { italic = true },
+          statementStyle = { bold = true },
+
+          transparent = true,  -- do not set background color
+          dimInactive = false, -- dim inactive window `:h hl-NormalNC`
+          terminalColors = true, -- define vim.g.terminal_color_{0,17}
+
+          theme = "dragon",    --"wave" , "dragon", "lotus"
+
+          overrides = function() -- add/modify highlights
+              return {
+                  NormalFloat = { bg = "none" },
+                  FloatBorder = { bg = "none" },
+                  FloatTitle = { bg = "none" },
+              }
+          end,
+
+          colors = {
+              theme = {
+                  all = {
+                      ui = {
+                          bg_gutter = "none",
+                      },
+                  },
+              },
+          },
+      },
+  },
   'folke/tokyonight.nvim',
   {
     'nvim-lualine/lualine.nvim',
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'onedark',
+        theme = 'iceberg_dark',
         component_separators = '|',
         section_separators = '',
       },
     },
   },
-  {
-    'lukas-reineke/indent-blankline.nvim',
-    main = 'ibl',
-    opts = {},
-  },
-  --
+    --
 
   -- Files navigation
   {
