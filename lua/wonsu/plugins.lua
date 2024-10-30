@@ -18,8 +18,14 @@ return {
 
   -- C#
   {
-      'jmederosalvarado/roslyn.nvim',
-      "moreiraio/razor.nvim",
+      -- 'jmederosalvarado/roslyn.nvim',
+      {
+          "seblj/roslyn.nvim",
+          ft = "cs",
+          opts = {
+              -- your configuration comes here; leave empty for default settings
+          }
+      },
       'jlcrochet/vim-razor',
       'Hoffs/omnisharp-extended-lsp.nvim',
   },
