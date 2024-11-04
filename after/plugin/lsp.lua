@@ -26,6 +26,27 @@ lsp.ensure_installed({
     --[[ 'csharp_ls' ]]
 })
 
+local custom_format = function()
+    if vim.bo.filetype == "templ" then
+        local bufnr = vim.api.nvim_get_current_buf()
+        local filename = vim.api.nvim_buf_get_name(bufnr)
+        local cmd = "templ fmt " .. vim.fn.shellescape(filename)
+
+        vim.fn.jobstart(cmd, {
+            on_exit = function()
+                -- Reload the buffer only if it's still the current buffer
+                if vim.api.nvim_get_current_buf() == bufnr then
+                    vim.cmd('e!')
+                end
+            end,
+        })
+    else
+        vim.lsp.buf.format()
+    end
+end
+
+vim.api.nvim_create_autocmd({ "BufWritePre" }, { pattern = { "*" }, callback = custom_format })
+
 local on_attach = function(_, bufnr)
 	local opts = {buffer = bufnr, remap = false}
 
@@ -36,6 +57,7 @@ local on_attach = function(_, bufnr)
 	vim.keymap.set("n", "<leader>rr", function() vim.lsp.buf.rename() end, opts)
 	vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
 	vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+	vim.keymap.set("n", "<leader>lf", custom_format, opts)
 end
 
 lsp.on_attach(on_attach)
